@@ -741,7 +741,10 @@ class KalturaCaptionAssetService(KalturaServiceBase):
         if self.client.isMultiRequest():
             return self.client.getMultiRequestResult()
         resultNode = self.client.doQueue()
-        return KalturaObjectFactory.create(resultNode, KalturaCaptionAsset)
+
+        caption_asset_cls = KalturaObjectFactory.objectFactories['KalturaCaptionAsset']
+
+        return KalturaObjectFactory.create(resultNode, caption_asset_cls)
 
     def setContent(self, id, contentResource):
         """Update content of caption asset"""
@@ -753,7 +756,10 @@ class KalturaCaptionAssetService(KalturaServiceBase):
         if self.client.isMultiRequest():
             return self.client.getMultiRequestResult()
         resultNode = self.client.doQueue()
-        return KalturaObjectFactory.create(resultNode, KalturaCaptionAsset)
+
+        caption_asset_cls = KalturaObjectFactory.objectFactories['KalturaCaptionAsset']
+
+        return KalturaObjectFactory.create(resultNode, caption_asset_cls)
 
     def update(self, id, captionAsset):
         """Update caption asset"""
